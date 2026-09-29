@@ -840,6 +840,22 @@ textarea {
     padding-bottom: 20px
 }
 
+.formTitle>div {
+    flex: 1
+}
+
+.cancelEdit {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #2d5582;
+    border-radius: 7px;
+    background: transparent;
+    color: #9fb4cc;
+    padding: 9px 12px;
+    cursor: pointer
+}
+
 .formTitle svg {
     color: #1687ff
 }
@@ -896,6 +912,13 @@ textarea {
     opacity: .6
 }
 
+.publish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px
+}
+
 .message {
     color: #8ec8ff;
     margin: 0
@@ -914,6 +937,38 @@ textarea {
     background: #0a1c39;
     padding: 12px;
     border-radius: 10px
+}
+
+.projectSummary {
+    flex: 1;
+    min-width: 0
+}
+
+.projectActions {
+    display: flex;
+    gap: 8px
+}
+
+.projectActions button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #29507b;
+    border-radius: 7px;
+    background: #0d294f;
+    color: #b6cce4;
+    padding: 9px 12px;
+    cursor: pointer
+}
+
+.projectActions .deleteProject {
+    border-color: #713746;
+    background: #331825;
+    color: #ff9daf
+}
+
+.projectActions button:disabled {
+    opacity: .55
 }
 
 .adminList img {
@@ -1107,5 +1162,21 @@ textarea {
     .marquee div,
     .orbit {
         animation: none
+    }
+}
+
+@media(max-width:600px) {
+    .adminList article {
+        align-items: flex-start;
+        flex-wrap: wrap
+    }
+
+    .projectActions {
+        width: 100%
+    }
+
+    .projectActions button {
+        flex: 1;
+        justify-content: center
     }
 }

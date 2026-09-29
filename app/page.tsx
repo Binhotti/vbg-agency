@@ -2,6 +2,9 @@ import Image from "next/image";
 import { ArrowDown, ArrowUpRight, BarChart3, Braces, Code2, Layers3, Megaphone, MoveRight } from "lucide-react";
 import { getProjects } from "@/lib/projects";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const nav = [["01", "Início", "#inicio"], ["02", "Serviços", "#servicos"], ["03", "Projetos", "#projetos"], ["04", "Tecnologias", "#tecnologias"], ["05", "Contato", "#contato"]];
 const technologies = ["Next.js", "Node.js", "TypeScript", "PHP", "MySQL", "Google Ads", "React", "Vercel", "Tailwind CSS", "SEO"];
 const services = [

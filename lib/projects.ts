@@ -9,7 +9,8 @@ export async function getProjects(): Promise<Project[]> {
   if (process.env.BLOB_READ_WRITE_TOKEN) {
     const { blobs } = await list({ prefix: indexKey, limit: 1 });
     if (!blobs[0]) return [];
-    const response = await fetch(blobs[0].url, { cache: "no-store" });
+    // The index is overwritten, so bypass the public Blob CDN cache.
+    const response = await fetch(`${blobs[0].url}?v=${Date.now()}`, { cache: "no-store" });
     return response.ok ? response.json() : [];
   }
   try { return JSON.parse(await fs.readFile(path.join(process.cwd(), "data/projects.json"), "utf8")); }
