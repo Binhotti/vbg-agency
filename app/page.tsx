@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, BarChart3, Braces, Code2, Layers3, Megaphone, MoveRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BarChart3, BriefcaseBusiness, Folder, Home as HomeIcon, Layers3, Mail, MessageCircle, Target } from "lucide-react";
 import { getProjects } from "@/lib/projects";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-const nav = [["01", "Início", "#inicio"], ["02", "Serviços", "#servicos"], ["03", "Projetos", "#projetos"], ["04", "Tecnologias", "#tecnologias"], ["05", "Contato", "#contato"]];
+const nav = [{ icon: HomeIcon, label: "Início", href: "#inicio" }, { icon: BriefcaseBusiness, label: "Serviços", href: "#servicos" }, { icon: Folder, label: "Projetos", href: "#projetos" }, { icon: Layers3, label: "Tecnologias", href: "#tecnologias" }, { icon: Mail, label: "Contato", href: "#contato" }];
 const technologies = ["Next.js", "Node.js", "TypeScript", "PHP", "MySQL", "Google Ads", "React", "Vercel", "Tailwind CSS", "SEO"];
 const services = [
-  { icon: Code2, n: "01", title: "Produtos digitais", text: "Sites, landing pages e sistemas rápidos, escaláveis e desenhados para converter." },
-  { icon: Megaphone, n: "02", title: "Aquisição & mídia", text: "Google Ads e estratégias orientadas por dados para transformar atenção em demanda." },
-  { icon: BarChart3, n: "03", title: "Performance", text: "Medição, otimização e automações para decisões mais rápidas e crescimento sustentável." },
+  { icon: BarChart3, title: "Estratégia", text: "Planejamento baseado em dados para decisões mais inteligentes." },
+  { icon: Layers3, title: "Desenvolvimento", text: "Soluções sob medida com as tecnologias mais modernas." },
+  { icon: Target, title: "Resultados", text: "Projetos focados em gerar crescimento real para o seu negócio." },
 ];
 
 export default async function Home() {
@@ -18,21 +18,23 @@ export default async function Home() {
   return <main>
     <aside className="sidebar">
       <a className="brand" href="#inicio" aria-label="VBG Agency"><Image className="brandLogo" src="/vbg-logo.png" alt="VBG Agency" width={88} height={88} /></a>
-      <nav>{nav.map(([n, label, href]) => <a href={href} key={href}><span>{n}</span>{label}</a>)}</nav>
-      <div className="sideFoot"><span>BR · SC</span><a href="mailto:contato@vbgagency.com">Vamos conversar <ArrowUpRight size={14} /></a></div>
+      <nav>{nav.map(({ icon: Icon, label, href }, index) => <a className={index === 0 ? "active" : ""} href={href} key={href}><Icon size={20}/><span>{label}</span>{index === 0 && <i/>}</a>)}</nav>
+      <div className="sideFoot"><a href="#contato"><MessageCircle size={18}/>Vamos conversar <ArrowUpRight size={14} /></a></div>
     </aside>
     <div className="page">
-      <section id="inicio" className="heroBanner">
-        <Image className="heroBannerImage" src="/vbg-banner.png" alt="VBG Agency: estratégia, marketing e resultados" width={2172} height={724} priority sizes="(max-width: 900px) 100vw, calc(100vw - 230px)" />
-        <div className="bannerActions">
-          <p>Estratégia e tecnologia para transformar presença digital em resultado.</p>
-          <div className="bannerLinks"><a className="bannerExplore" href="#servicos">Conheça os serviços <ArrowDown size={16} /></a><a className="bannerCta" href="#contato">Vamos conversar <ArrowUpRight size={16} /></a></div>
+      <section id="inicio" className="newHero">
+        <div className="heroCopy">
+          <div className="heroKicker"><i/> VBG AGENCY</div>
+          <h1>Estratégia e tecnologia<br/>para transformar<br/>presença digital<br/><em>em resultado.</em></h1>
+          <p>Unimos estratégia, marketing e tecnologia para criar soluções digitais que impulsionam o crescimento do seu negócio.</p>
+          <div className="heroActions"><a className="primaryAction" href="#contato">Vamos conversar <ArrowUpRight size={17}/></a><a className="secondaryAction" href="#servicos">Conheça nossos serviços <ArrowDown size={17}/></a></div>
         </div>
+        <div className="heroVisual"><Image src="/hero-dashboard.png" alt="Painel digital com gráficos de crescimento" width={1760} height={880} priority sizes="(max-width: 900px) 100vw, 60vw"/></div>
       </section>
 
-      <section id="servicos" className="section services">
-        <header className="sectionHead"><span>01 — CAPACIDADES</span><h2>Tecnologia com<br /><em>intenção.</em></h2><p>Não entregamos apenas telas bonitas. Construímos ferramentas digitais pensadas para gerar impacto mensurável.</p></header>
-        <div className="serviceGrid">{services.map(({ icon: Icon, ...item }) => <article key={item.n}><div><span>{item.n}</span><Icon /></div><h3>{item.title}</h3><p>{item.text}</p><MoveRight /></article>)}</div>
+      <section id="servicos" className="capabilitySection">
+        <div className="capabilityIntro"><span>01 — CAPACIDADES</span><h2>Tecnologia com<br/><em>intenção.</em></h2><p>Não entregamos apenas telas bonitas. Construímos ferramentas digitais pensadas para gerar impacto mensurável.</p><div className="trustLine"><div><b>V</b><b>B</b><b>G</b><strong>+12</strong></div><span>Mais de 12 empresas<br/>já confiaram em nosso trabalho.</span></div></div>
+        <div className="capabilityCards">{services.map(({ icon: Icon, title, text }) => <article key={title}><div className="capabilityIcon"><Icon size={27}/></div><h3>{title}</h3><p>{text}</p><a href="#contato" aria-label={`Conheça ${title}`}><ArrowUpRight size={18}/></a></article>)}</div>
       </section>
 
       <section id="projetos" className="section projects">
