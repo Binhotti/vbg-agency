@@ -1910,3 +1910,288 @@ textarea {
         min-height: 130px
     }
 }
+
+/* Interactive technologies catalog */
+.techShowcase {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 58px clamp(30px, 4vw, 70px) 70px;
+    color: #f5f9ff;
+    background:
+        radial-gradient(circle at 76% 7%, rgba(12, 97, 226, .3), transparent 30%),
+        linear-gradient(135deg, #06172f 0%, #071d3f 55%, #061932 100%)
+}
+
+.techShowcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #1787ff 1.3px, transparent 1.3px);
+    background-size: 20px 20px;
+    -webkit-mask-image: radial-gradient(circle at 76% 13%, #000 0 12%, transparent 28%);
+    mask-image: radial-gradient(circle at 76% 13%, #000 0 12%, transparent 28%)
+}
+
+.techHero {
+    position: relative;
+    z-index: 2;
+    min-height: 285px;
+    display: grid;
+    grid-template-columns: minmax(540px, 53%) 1fr;
+    align-items: center
+}
+
+.techHeading>span {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #82aadb;
+    font-size: 10px;
+    letter-spacing: 3.7px
+}
+
+.techHeading>span i {
+    width: 28px;
+    height: 2px;
+    background: #1688ff
+}
+
+.techHeading h2 {
+    margin: 26px 0 12px;
+    color: #f7fbff;
+    font: 600 clamp(54px, 5.15vw, 82px)/.94 'Manrope';
+    letter-spacing: -.065em
+}
+
+.techHeading h2 em {
+    color: #1286ff;
+    font-style: normal
+}
+
+.techHeading>p {
+    max-width: 570px;
+    margin: 0;
+    color: #a1c0e4;
+    font-size: 17px;
+    line-height: 1.6
+}
+
+.techVisual {
+    position: absolute;
+    z-index: -1;
+    width: min(760px, 57vw);
+    right: -5%;
+    top: -100px;
+    filter: saturate(1.12) drop-shadow(0 28px 60px rgba(8, 95, 221, .3));
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 18%, #000 94%, transparent 100%)
+}
+
+.techVisual img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.techFilters {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 9px;
+    margin: 3px 0 26px;
+    overflow-x: auto;
+    scrollbar-width: none
+}
+
+.techFilters::-webkit-scrollbar {
+    display: none
+}
+
+.techFilters button {
+    flex: 0 0 auto;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    padding: 0 23px;
+    border: 1px solid rgba(54, 122, 201, .65);
+    border-radius: 999px;
+    color: #9bbbe0;
+    background: rgba(7, 30, 64, .74);
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease
+}
+
+.techFilters button:hover {
+    color: #fff;
+    border-color: #1687ff;
+    transform: translateY(-2px)
+}
+
+.techFilters button.active {
+    color: #fff;
+    border-color: #1687ff;
+    background: linear-gradient(135deg, #198cff, #0875ed);
+    box-shadow: 0 11px 27px rgba(10, 119, 241, .23)
+}
+
+.techCatalog {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px
+}
+
+.techCatalog article {
+    position: relative;
+    min-height: 138px;
+    display: grid;
+    grid-template-columns: 68px 1fr 40px;
+    gap: 14px;
+    align-items: start;
+    padding: 21px;
+    border: 1px solid rgba(39, 106, 184, .58);
+    border-radius: 17px;
+    background: linear-gradient(145deg, rgba(10, 42, 84, .88), rgba(7, 31, 65, .96));
+    box-shadow: 0 18px 50px rgba(0, 8, 25, .13);
+    animation: techCardIn .28s ease both;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease
+}
+
+.techCatalog article:hover {
+    transform: translateY(-4px);
+    border-color: rgba(29, 139, 255, .9);
+    background: linear-gradient(145deg, rgba(12, 52, 103, .94), rgba(8, 38, 79, .98))
+}
+
+@keyframes techCardIn {
+    from { opacity: 0; transform: translateY(8px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+
+.techLogo {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 45px
+}
+
+.techLogo svg {
+    max-width: 47px;
+    max-height: 47px
+}
+
+.techCardCopy {
+    min-width: 0
+}
+
+.techCardCopy h3 {
+    margin: 2px 0 4px;
+    color: #f8fbff;
+    font: 600 16px 'Manrope';
+    letter-spacing: -.025em
+}
+
+.techCardCopy p {
+    margin: 0;
+    color: #90b1d8;
+    font-size: 12.5px;
+    line-height: 1.45
+}
+
+.techCardCopy span {
+    display: inline-block;
+    margin-top: 9px;
+    padding: 3px 9px;
+    border: 1px solid #1988ff;
+    border-radius: 999px;
+    color: #8fc7ff;
+    font-size: 10.5px
+}
+
+.techCatalog article>a {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(31, 124, 231, .57);
+    border-radius: 50%;
+    color: #a4d2ff;
+    background: rgba(11, 68, 134, .72)
+}
+
+@media(max-width:1320px) {
+    .techCatalog {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    .techFilters {
+        padding-bottom: 5px
+    }
+}
+
+@media(max-width:1050px) {
+    .techHero {
+        grid-template-columns: 1fr
+    }
+
+    .techVisual {
+        right: -22%;
+        opacity: .38
+    }
+
+    .techCatalog {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:700px) {
+    .techShowcase {
+        padding: 58px 20px
+    }
+
+    .techHero {
+        min-height: 390px;
+        align-items: start
+    }
+
+    .techHeading h2 {
+        font-size: 48px
+    }
+
+    .techVisual {
+        width: 660px;
+        max-width: none;
+        right: -270px;
+        top: 125px;
+        opacity: .42
+    }
+
+    .techCatalog {
+        grid-template-columns: 1fr
+    }
+}
+
+@media(max-width:450px) {
+    .techHeading h2 {
+        font-size: 41px
+    }
+
+    .techCatalog article {
+        grid-template-columns: 58px 1fr 38px;
+        padding: 17px
+    }
+
+    .techLogo {
+        width: 50px;
+        height: 50px;
+        font-size: 39px
+    }
+}

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, BarChart3, BriefcaseBusiness, Folder, Home as HomeIcon, Layers3, Mail, MessageCircle, Target } from "lucide-react";
 import { getProjects } from "@/lib/projects";
+import { TechShowcase } from "@/components/TechShowcase";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const nav = [{ icon: HomeIcon, label: "Início", href: "#inicio" }, { icon: BriefcaseBusiness, label: "Serviços", href: "#servicos" }, { icon: Folder, label: "Projetos", href: "#projetos" }, { icon: Layers3, label: "Tecnologias", href: "#tecnologias" }, { icon: Mail, label: "Contato", href: "#contato" }];
-const technologies = ["Next.js", "Node.js", "TypeScript", "PHP", "MySQL", "Google Ads", "React", "Vercel", "Tailwind CSS", "SEO"];
 const services = [
   { icon: BarChart3, title: "Estratégia", text: "Planejamento baseado em dados para decisões mais inteligentes." },
   { icon: Layers3, title: "Desenvolvimento", text: "Soluções sob medida com as tecnologias mais modernas." },
@@ -48,11 +48,7 @@ export default async function Home() {
         </article>)}</div> : <div className="emptyProjects"><Layers3/><div><span>EM BREVE</span><h3>Estamos preparando<br/>nossos primeiros cases.</h3><p>Novos projetos serão publicados aqui.</p></div></div>}
       </section>
 
-      <section id="tecnologias" className="tech section">
-        <div className="eyebrow"><i /> 03 — STACK QUE DOMINAMOS</div><h2>Ferramentas certas.<br /><em>Resultados reais.</em></h2>
-        <div className="marquee"><div>{[...technologies, ...technologies].map((tech, i) => <span key={i}>{tech}<b>✦</b></span>)}</div></div>
-        <div className="techMeta"><p>Da arquitetura ao lançamento, escolhemos cada tecnologia pelo que ela resolve — nunca por tendência.</p><span>DESENVOLVIMENTO · MÍDIA · DADOS</span></div>
-      </section>
+      <TechShowcase/>
 
       <section id="contato" className="contact section"><div className="eyebrow"><i /> PRONTO PARA COMEÇAR?</div><h2>Vamos transformar sua<br />próxima ideia em <em>resultado.</em></h2><a href="mailto:agencyvbg@gmail.com">agencyvbg@gmail.com <ArrowUpRight />
       </a>
