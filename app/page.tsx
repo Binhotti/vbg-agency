@@ -37,9 +37,15 @@ export default async function Home() {
         <div className="capabilityCards">{services.map(({ icon: Icon, title, text }) => <article key={title}><div className="capabilityIcon"><Icon size={27}/></div><h3>{title}</h3><p>{text}</p><a href="#contato" aria-label={`Conheça ${title}`}><ArrowUpRight size={18}/></a></article>)}</div>
       </section>
 
-      <section id="projetos" className="section projects">
-        <header className="sectionHead"><span>02 — TRABALHOS</span><h2>Projetos que<br /><em>falam por nós.</em></h2></header>
-        {projects.length ? <div className="projectGrid">{projects.map((p) => <article key={p.id}><img src={p.imageUrl} alt={p.title} /><div><h3>{p.title}</h3><p>{p.description}</p><ul>{p.technologies.map(t => <li key={t}>{t}</li>)}</ul></div></article>)}</div> : <div className="emptyProjects"><Layers3 /><div><span>EM BREVE</span><h3>Estamos preparando<br />nossos primeiros cases.</h3><p>Novos projetos serão publicados aqui.</p></div></div>}
+      <section id="projetos" className="projectsShowcase">
+        <header className="projectsHero">
+          <div className="projectsHeading"><span><i/>02 — TRABALHOS</span><h2>Projetos que<br/><em>falam por nós.</em></h2><p>Transformamos ideias em soluções digitais que geram resultados reais para nossos clientes.</p></div>
+          <div className="projectsVisual"><Image src="/projects-showcase.png" alt="Interfaces digitais desenvolvidas pela VBG Agency" width={1760} height={880} sizes="(max-width: 900px) 100vw, 45vw"/></div>
+        </header>
+        {projects.length ? <div className="projectShowcaseGrid">{projects.map((project) => <article key={project.id}>
+          <div className="projectImage"><img src={project.imageUrl} alt={project.title}/></div>
+          <div className="projectInfo"><div><h3>{project.title}</h3><p>{project.description}</p><ul>{project.technologies.map(technology => <li key={technology}>{technology}</li>)}</ul></div><a href="#contato" aria-label={`Conversar sobre ${project.title}`}><ArrowUpRight size={22}/></a></div>
+        </article>)}</div> : <div className="emptyProjects"><Layers3/><div><span>EM BREVE</span><h3>Estamos preparando<br/>nossos primeiros cases.</h3><p>Novos projetos serão publicados aqui.</p></div></div>}
       </section>
 
       <section id="tecnologias" className="tech section">
