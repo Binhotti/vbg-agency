@@ -15,3 +15,7 @@ O painel fica em `/admin`. Em produção, defina `ADMIN_PASSWORD`, `AUTH_SECRET`
 ## Convenção de commits
 
 O projeto segue Conventional Commits: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:` e `chore:`.
+
+## Infraestrutura
+
+Deploy contínuo via GitHub e armazenamento de projetos com Vercel Blob na região de São Paulo.
