@@ -2069,6 +2069,150 @@ textarea {
     background: linear-gradient(145deg, rgba(12, 52, 103, .94), rgba(8, 38, 79, .98))
 }
 
+.techCatalog {
+    padding-top: 5px;
+    margin-top: -5px
+}
+
+/* Contact showcase */
+.contactShowcase {
+    position: relative;
+    min-height: 100vh;
+    padding: 72px clamp(30px, 4vw, 70px) 24px;
+    display: grid;
+    grid-template-columns: minmax(420px, .82fr) minmax(580px, 1.18fr);
+    grid-template-rows: 1fr auto;
+    gap: 34px 70px;
+    overflow: hidden;
+    color: #071a3b;
+    background:
+        radial-gradient(circle at 82% 6%, rgba(36, 140, 255, .24), transparent 30%),
+        linear-gradient(135deg, #fff 0%, #f3f9ff 48%, #dceeff 100%)
+}
+
+.contactShowcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(145deg, transparent 34%, rgba(125, 187, 248, .09) 34% 43%, transparent 43% 67%, rgba(95, 172, 247, .1) 67% 76%, transparent 76%)
+}
+
+.contactArtwork {
+    position: absolute;
+    z-index: 0;
+    top: -170px;
+    right: -40px;
+    width: min(840px, 55vw);
+    height: auto;
+    pointer-events: none;
+    filter: saturate(1.05)
+}
+
+.contactIntro,
+.contactForm,
+.contactFooter { position: relative; z-index: 2 }
+
+.contactIntro { align-self: end }
+
+.contactKicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #508fe2;
+    font-size: 10px;
+    letter-spacing: 3.5px
+}
+
+.contactKicker i { width: 28px; height: 2px; background: #1688ff }
+
+.contactIntro h2 {
+    margin: 39px 0 15px;
+    color: #061634;
+    font: 500 clamp(49px, 4.6vw, 76px)/.93 'Manrope';
+    letter-spacing: -.07em
+}
+
+.contactIntro h2 em { color: #1286ff; font-style: normal }
+.contactIntro>p { margin: 0 0 26px; color: #5f7da4; font-size: 17px; line-height: 1.48 }
+.contactLinks { display: grid; gap: 13px }
+.contactLinks>a {
+    min-height: 79px;
+    display: grid;
+    grid-template-columns: 55px 1fr 22px;
+    align-items: center;
+    gap: 17px;
+    padding: 10px 22px 10px 17px;
+    border: 1px solid rgba(183, 210, 240, .55);
+    border-radius: 16px;
+    color: #0b1c3c;
+    background: rgba(255,255,255,.82);
+    box-shadow: 0 13px 35px rgba(52, 113, 178, .06)
+}
+.contactLinks>a>span { width: 55px; height: 55px; display: grid; place-items: center; border-radius: 13px; color: #1688ff; background: #e9f4ff }
+.contactLinks>a>span svg { width: 25px }
+.contactLinks>a>b { font: 600 16px 'Manrope' }
+.contactLinks>a small { display: block; margin-top: 4px; color: #6682aa; font-size: 14px; font-weight: 400 }
+.contactLinks>a>svg { width: 18px; color: #1688ff }
+
+.contactForm {
+    align-self: end;
+    margin-top: 160px;
+    padding: 43px 44px 30px;
+    border: 1px solid rgba(197, 218, 240, .75);
+    border-radius: 20px;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 25px 70px rgba(49, 105, 170, .09)
+}
+.contactForm h3 { margin: 0 0 5px; font: 600 27px 'Manrope'; letter-spacing: -.045em }
+.contactForm>p { margin: 0 0 28px; color: #5f789c; font-size: 14px }
+.contactFields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px }
+.contactFields label { position: relative; color: #0a2146; font-size: 12px }
+.contactFields label>div { position: relative; margin-top: 7px }
+.contactFields label>div>svg:first-child { position: absolute; z-index: 2; left: 15px; top: 50%; width: 17px; color: #7797c0; transform: translateY(-50%) }
+.contactFields input, .contactFields select, .contactFields textarea {
+    width: 100%;
+    border: 1px solid #c9daee;
+    border-radius: 9px;
+    outline: none;
+    color: #132a4e;
+    background: rgba(251,253,255,.8);
+    font: 13px 'Manrope'
+}
+.contactFields input, .contactFields select { height: 46px; padding: 0 42px }
+.contactFields select { appearance: none }
+.contactFields .wide { grid-column: 1/-1 }
+.contactFields label>div>svg:last-child:not(:first-child) { position: absolute; right: 14px; top: 50%; width: 16px; color: #7194c1; transform: translateY(-50%) }
+.contactFields .messageField>svg:first-child { top: 19px }
+.contactFields textarea { height: 124px; padding: 15px 16px 15px 43px; resize: vertical }
+.counter { display: block; margin-top: 4px; text-align: right; color: #6782a5 }
+.formBottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 8px }
+.formBottom button { height: 52px; min-width: 245px; border: 0; border-radius: 11px; color: #fff; background: linear-gradient(135deg,#168cff,#0876ec); font: 500 14px 'Manrope'; cursor: pointer }
+.formBottom button svg { width: 17px; margin-left: 10px; vertical-align: middle }
+.formBottom>span { display: flex; align-items: center; gap: 9px; color: #7189aa; font-size: 11px }
+.formBottom>span svg { width: 16px }
+.contactFooter { grid-column: 1/-1; display: flex; align-items: center; justify-content: space-between; padding-top: 17px; border-top: 1px solid #a9c8e7 }
+.contactFooter img { width: 88px; height: auto; object-fit: contain }
+.contactFooter p { margin: 0; color: #6885aa; font-size: 12px }
+
+@media(max-width:1100px) {
+    .contactShowcase { grid-template-columns: 1fr; padding-top: 65px }
+    .contactArtwork { top: -100px; right: -140px; width: 780px; opacity: .38 }
+    .contactIntro { max-width: 680px }
+    .contactForm { margin-top: 0 }
+}
+
+@media(max-width:700px) {
+    .contactShowcase { padding: 58px 20px 24px }
+    .contactIntro h2 { font-size: 46px }
+    .contactArtwork { top: -25px; right: -250px; width: 650px; opacity: .25 }
+    .contactForm { padding: 27px 20px }
+    .contactFields { grid-template-columns: 1fr }
+    .contactFields .wide { grid-column: auto }
+    .formBottom { align-items: stretch; flex-direction: column }
+    .contactFooter { align-items: flex-start; gap: 18px; flex-direction: column }
+}
+
 @keyframes techCardIn {
     from { opacity: 0; transform: translateY(8px) }
     to { opacity: 1; transform: translateY(0) }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowDown, ArrowUpRight, BarChart3, BriefcaseBusiness, Folder, Home as HomeIcon, Layers3, Mail, MessageCircle, Target } from "lucide-react";
 import { getProjects } from "@/lib/projects";
 import { TechShowcase } from "@/components/TechShowcase";
+import { ContactShowcase } from "@/components/ContactShowcase";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -50,14 +51,7 @@ export default async function Home() {
 
       <TechShowcase/>
 
-      <section id="contato" className="contact section"><div className="eyebrow"><i /> PRONTO PARA COMEÇAR?</div><h2>Vamos transformar sua<br />próxima ideia em <em>resultado.</em></h2><a href="mailto:agencyvbg@gmail.com">agencyvbg@gmail.com <ArrowUpRight />
-      </a>
-      <footer>
-        <div className="brand"><Image className="brandLogo" src="/vbg-logo.png" alt="VBG Agency" width={88} height={88} />
-        </div>
-        <p>© {new Date().getFullYear()} VBG Agency. Todos os direitos reservados.</p>
-      </footer>
-      </section>
+      <ContactShowcase/>
     </div>
   </main>;
 }
